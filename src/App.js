@@ -68,7 +68,6 @@ function App() {
 
       // Listen for remote stream
       pc.ontrack = (event) => {
-        setRemoteStream(event.streams[0]);
         if (remoteVideoRef.current) {
           remoteVideoRef.current.srcObject = event.streams[0];
         }
@@ -172,7 +171,6 @@ function App() {
 
       // Listen for remote stream
       pc.ontrack = (event) => {
-        setRemoteStream(event.streams[0]);
         if (remoteVideoRef.current) {
           remoteVideoRef.current.srcObject = event.streams[0];
         }
@@ -236,7 +234,6 @@ function App() {
       peerConnection.close();
       setPeerConnection(null);
     }
-    setRemoteStream(null);
     setConnectionStatus("Disconnected");
 
     // Clean up localStorage items
