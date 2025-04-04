@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   const [localStream, setLocalStream] = useState(null);
-  const [remoteStream, setRemoteStream] = useState(null);
+  // const [remoteStream, setRemoteStream] = useState(null);
   const [peerConnection, setPeerConnection] = useState(null);
   const [roomId, setRoomId] = useState("");
   const [joinRoomId, setJoinRoomId] = useState("");
