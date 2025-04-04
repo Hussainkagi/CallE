@@ -24,10 +24,11 @@ function App() {
   };
 
   useEffect(() => {
-    // Initialize local video stream
+    let stream;
+
     async function setupLocalStream() {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({
+        stream = await navigator.mediaDevices.getUserMedia({
           video: true,
           audio: true,
         });
@@ -43,13 +44,9 @@ function App() {
 
     setupLocalStream();
 
-    // Cleanup on component unmount
     return () => {
-      if (localStream) {
-        localStream.getTracks().forEach((track) => track.stop());
-      }
-      if (peerConnection) {
-        peerConnection.close();
+      if (stream) {
+        stream.getTracks().forEach((track) => track.stop());
       }
     };
   }, []);
